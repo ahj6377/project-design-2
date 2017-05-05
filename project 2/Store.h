@@ -36,6 +36,9 @@ public:
 	{
 		availableDistance = AD;
 	};
+	void PrintClientOrderedMenu(string Uname);
+
+
 protected:
 	int storeId;
 	int availableDistance;

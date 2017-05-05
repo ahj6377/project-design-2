@@ -23,6 +23,7 @@ void ClientProcessor::processOrder(User* loginedUser)
 		cout << "1. 음식점 이름을 검색" << endl;
 		cout << "2. 음식점 종류로 검색" << endl;
 		cout << "3. 위치 정보 변경" << endl;
+		cout << "4. 주문 내역 확인" << endl;
 		cout << "--------------------------------" << endl;
 		int b;
 		cin >> b;
@@ -252,7 +253,20 @@ void ClientProcessor::processOrder(User* loginedUser)
 			cout << "위치 정보가 위도 " << lat << " 경도 " << lont << " 로 변경 되었습니다." << endl;
 			
 		}
-		
+		if (b == 4)
+		{
+			loginedUser->getCname(Uname);
+			for (int i = 0; i < storeDBPtr.size(); i++)//모든 가게에서 탐색
+			{
+				storeDBPtr[i]->PrintClientOrderedMenu(Uname);
+
+
+			}
+			cout << endl <<"-------------------------------------" << endl;
+
+
+		}
+
 	/*	if (b == 0)
 		{	
 			break;
@@ -260,3 +274,4 @@ void ClientProcessor::processOrder(User* loginedUser)
 
 	//}//while문 닫는괄호
 }
+

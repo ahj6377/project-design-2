@@ -66,3 +66,19 @@ Store::~Store()
 
 
 }
+void Store::PrintClientOrderedMenu(string Uname)
+{
+	for (int i = 0; i < recievedOrder.size(); i++)
+	{
+		if (Uname == recievedOrder[i].orderedUserId)
+		{
+			cout << "가게 : " << storeName << ",  메뉴 : " << recievedOrder[i].orderedFood << endl;
+
+
+		}
+
+	}
+
+
+
+}
