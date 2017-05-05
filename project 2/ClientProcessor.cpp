@@ -99,13 +99,13 @@ void ClientProcessor::processOrder(User* loginedUser)
 						int Slat, Slon, Ulat, Ulon;
 						for (int i = 0; i < locationDBPtr.size(); i++)
 						{
-							if (locationDBPtr[i]->locationId == SLID)
+							if (locationDBPtr[i]->locationId == SLID&& locationDBPtr[i]->locationType == 2)
 							{
 								Slat = locationDBPtr[i]->latitude;
 								Slon = locationDBPtr[i]->lontitude;
 
 							}
-							if (locationDBPtr[i]->locationId == ULID)
+							if (locationDBPtr[i]->locationId == ULID && locationDBPtr[i]->locationType == 1)
 							{
 								Ulat = locationDBPtr[i]->latitude;
 								Ulon = locationDBPtr[i]->lontitude;
@@ -223,7 +223,7 @@ void ClientProcessor::processOrder(User* loginedUser)
 			{
 				int getLid;
 				getLid = locationDBPtr[i]->locationId;
-				if (getLid == LID)
+				if (getLid == LID&& locationDBPtr[i]->locationType == 1)
 				{
 					
 					lat = locationDBPtr[i]->latitude;
@@ -239,8 +239,10 @@ void ClientProcessor::processOrder(User* loginedUser)
 			for (int i = 0; i < locationDBPtr.size(); i++)
 			{
 				int getLid;
+				int getUT;
+				getUT = locationDBPtr[i]->locationType;
 				getLid = locationDBPtr[i]->locationId;
-				if (getLid == LID)
+				if (getLid == LID && getUT == 1)
 				{
 					locationDBPtr[i]->latitude = lat;
 					locationDBPtr[i]->lontitude = lont;

@@ -10,13 +10,14 @@ ManagerProcessor::ManagerProcessor(vector<User*> &userdb, vector<Store*> &stored
 }
 void ManagerProcessor::processOrder(User* loginedUser)
 {
-	int ULID,SLID;
+	int ULID,SLID,UT;
 	loginedUser->getLID(ULID);
+	loginedUser->getUT(UT);
 	Store* ThisStore;
 	for (int i = 0; i < storeDBPtr.size(); i++)
 	{
 		storeDBPtr[i]->getSID(SLID);
-		if (SLID == ULID)
+		if (SLID == ULID && UT == 1)
 		{
 			ThisStore = storeDBPtr[i];
 
